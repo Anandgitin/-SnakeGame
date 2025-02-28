@@ -113,10 +113,11 @@ const gameOver = () => {
     clearInterval(gameInterval);
 
     // Check and store high score
+    let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
     if (score > Math.min(...highScores.map(s => s.score), 0)) {
         highScores.push({ name: playerName, score });
-        highScores.sort((a, b) => b.score - a.score);
-        highScores = highScores.slice(0, 3);
+        highScores.sort((a, b) => b.score - a.score); // Sort by score in descending order
+        highScores = highScores.slice(0, 3); // Keep top 3 scores
         localStorage.setItem("highScores", JSON.stringify(highScores));
     }
 
@@ -127,6 +128,8 @@ const gameOver = () => {
 // Display high scores
 const displayHighScores = () => {
     const scoreList = document.getElementById("scoreList");
+    let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+
     scoreList.innerHTML = highScores.map(s => `<li>${s.name}: ${s.score}</li>`).join("");
 };
 
