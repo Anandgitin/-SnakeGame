@@ -1,31 +1,14 @@
 body {
     font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f4f4f4;
-}
-
-.game-container {
     text-align: center;
 }
 
-#gameCanvas {
-    border: 2px solid #000;
-}
-
-#score, #level {
-    margin: 10px;
-    font-size: 18px;
-}
-
-#gameOverMessage {
-    color: red;
-    font-size: 24px;
-}
-
-#restartButton {
+canvas {
     margin-top: 20px;
+    border: 2px solid black;
+}
+
+input, select, button {
+    margin: 10px;
+    padding: 5px;
 }
